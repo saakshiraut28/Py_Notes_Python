@@ -20,6 +20,7 @@ C:\Users\Owner\PycharmProjects\Notebook>python manage.py runserver
 http://127.0.0.1:8000/addlist/
 
 ```
-
+# Preview Image
+![Preview](templates/image/Preview1.PNG)
 
 
