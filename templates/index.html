@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Py_notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+body {
+  background-color: #c8f1ee;
+  background-repeat: no-repeat, repeat;
+}
+</style>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">Py-Notes</a>
+
+</nav>
+<br><br>
+<h1 align="center" style="color: #9a4c69;">Organise your notes with Py-Notes.</h1><br>
+<h3 style="margin: 30px;">Here you can add your first note..</h3>
+<div class="content" align="left" style="margin: 20px;">
+<ul>
+    {% for all_note in all_notes %}
+    <li>
+        {{ all_note.content }}
+     <form action="/deletetask/{{all_note.id}}/"
+          style="display: inline;"
+          method="post">{% csrf_token %}
+      <input type="submit" value="Delete" />
+    </form>
+    </li>
+    {% endfor %}
+</ul>
+<form action="/addtask/" method="post">{% csrf_token %}
+    <input type="text" name="content" />
+    <input type="submit" value="Add" />
+</form>
+</div>
+</body>
+</html>
